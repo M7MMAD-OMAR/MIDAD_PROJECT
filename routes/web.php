@@ -18,12 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/posts/{slug}', function ($slug) {
-    $path = resource_path('posts/'. $slug);
-
-//    if (! file_exists($path)) {
-//        return abort(404);
-//    }
     return view('post', [
-        'file_content' => file_get_contents($path),
+        'file_content' => \App\Models\Post::find($slug),
     ]);
 });
