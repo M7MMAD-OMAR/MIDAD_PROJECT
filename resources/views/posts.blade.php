@@ -24,19 +24,19 @@
 </head>
 <body>
 
-<div>
-    <artisan>
-        <a href="/posts/first_post.html"><h1>First post</h1></a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, ipsum!</p>
-    </artisan>
-    <artisan>
-        <a href=""><h1>Second post</h1></a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, minus.</p>
-    </artisan>
-    <artisan>
-        <a href=""><h1>Third post</h1></a>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, itaque?</p>
-    </artisan>
-</div>
+    <div>
+        <artisan>
+            <a href="/posts/first_post.html"><h1>First post</h1></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, ipsum!</p>
+        </artisan>
+        <artisan>
+            <a href="/posts/second_post.html"><h1>Second post</h1></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, minus.</p>
+        </artisan>
+        <artisan>
+            <a href="/posts/third_post.html"><h1>Third post</h1></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, itaque?</p>
+        </artisan>
+    </div>
 </body>
 </html>

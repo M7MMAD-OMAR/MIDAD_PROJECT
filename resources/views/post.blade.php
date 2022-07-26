@@ -10,12 +10,18 @@
         body {
             background-color: #2d3748;
             color: #f7fafc;
+            margin-left: 30%;
+            max-width: 40%;
+        }
+        a {
+            color: springgreen;
         }
     </style>
 </head>
 <body>
 
-{{ $file_content }}
+    <?= $file_content ?>
 
+    <a href="/">Go back</a>
 </body>
 </html>
