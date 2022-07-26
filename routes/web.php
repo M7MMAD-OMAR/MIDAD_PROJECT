@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('posts');
 });
+
+Route::get('/posts/{slug}', function ($slug) {
+    $path = resource_path('posts/'. $slug);
+
+//    if (! file_exists($path)) {
+//        return abort(404);
+//    }
+    return view('post', [
+        'file_content' => file_get_contents($path),
+    ]);
+});

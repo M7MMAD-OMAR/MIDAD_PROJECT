@@ -17,13 +17,16 @@
         body div {
             max-width: 50%;
         }
+        a {
+            color: #f7fafc;
+        }
     </style>
 </head>
 <body>
 
 <div>
     <artisan>
-        <a href="{{}}"><h1>First post</h1></a>
+        <a href="/posts/first_post.html"><h1>First post</h1></a>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, ipsum!</p>
     </artisan>
     <artisan>
