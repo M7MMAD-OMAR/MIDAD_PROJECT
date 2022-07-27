@@ -28,10 +28,10 @@
 
     <div>
         <artisan>
-            @foreach($objects as $object)
-                <h1><a href="/posts/{{$object->slug}}">{{$object->title}}</a></h1>
+            @foreach($posts as $post)
+                <h1><a href="/posts/{{$post->slug}}">{{$post->title}}</a></h1>
                 <div>
-
+                    {{$post->excerpt}}
                 </div>
 
         @endforeach

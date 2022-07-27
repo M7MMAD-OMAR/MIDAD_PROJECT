@@ -20,7 +20,7 @@
 </head>
 <body>
 
-    <?= $file_content ?>
+    <?= $post_content ?>
 
     <a href="/">Go back</a>
 </body>

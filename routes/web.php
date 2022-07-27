@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
@@ -17,17 +18,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $files = File::files(resource_path('posts'));
     $objects = [];
-    foreach ($files as $file) {
+    $posts = array_map(function ($file) {
+        $objects = \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile($file);
+        return new Post(
+            $objects->matter('title'),
+            $objects->slug,
+            $objects->date,
+            $objects->excerpt,
+            $objects->body(),
+        );
+    }, $files);
 
-    $objects[] = \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile($file);
-    }
-//    dd($object);
-//    $posts = \App\Models\Post::all();
-    return view('posts', compact('objects'));
+    return view('posts', compact('posts'));
 });
 
 Route::get('/posts/{slug}', function ($slug) {
     return view('post', [
-        'file_content' => \App\Models\Post::find($slug),
+        'post_content' => \App\Models\Post::find($slug),
     ]);
 });
