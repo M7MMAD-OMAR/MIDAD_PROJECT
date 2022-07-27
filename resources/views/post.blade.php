@@ -20,7 +20,9 @@
 </head>
 <body>
 
-    <?= $post_content ?>
+    <h1>{{$post_content->title}}</h1>
+
+    <p>{{$post_content->body}}</p>
 
     <a href="/">Go back</a>
 </body>

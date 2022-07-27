@@ -16,23 +16,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $files = File::files(resource_path('posts'));
 
-    $posts = collect($files)
-        ->map(function ($file) {
-        return  \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile($file);
-        })->map(function ($object) {
-            return new Post(
-                $object->matter('title'),
-                $object->slug,
-                $object->date,
-                $object->excerpt,
-                $object->body(),
-            );
-        });
 
-    return view('posts', compact('posts'));
+    return view('posts', [
+        'posts' => Post::all(),
+    ]);
 });
+
 
 Route::get('/posts/{slug}', function ($slug) {
     return view('post', [
