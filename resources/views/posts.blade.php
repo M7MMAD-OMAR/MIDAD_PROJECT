@@ -16,7 +16,7 @@
         }
 
         body div {
-            max-width: 50%;
+            margin: 80px 0;
         }
 
         a {
@@ -28,9 +28,10 @@
 
     <div>
         <artisan>
-            @foreach($posts as $post)
+            @foreach($objects as $object)
+                <h1><a href="/posts/{{$object->slug}}">{{$object->title}}</a></h1>
                 <div>
-                    <?= $post ?>
+
                 </div>
 
         @endforeach

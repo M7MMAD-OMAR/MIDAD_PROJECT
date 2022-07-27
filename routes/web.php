@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $posts = \App\Models\Post::all();
-    return view('posts', compact('posts'));
+    $files = File::files(resource_path('posts'));
+    $objects = [];
+    foreach ($files as $file) {
+
+    $objects[] = \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile($file);
+    }
+//    dd($object);
+//    $posts = \App\Models\Post::all();
+    return view('posts', compact('objects'));
 });
 
 Route::get('/posts/{slug}', function ($slug) {

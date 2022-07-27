@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\File;
 class Post
 {
 
+    public $title;
+    public $slug;
+    public $date;
+    public $excerpt;
+
     public static function all()
     {
         $files = File::allFiles(resource_path('posts'));
@@ -17,9 +22,9 @@ class Post
     }
 
 
-
-    public static function find($slug) {
-        if (! is_file($path = resource_path('posts/'. $slug))) {
+    public static function find($slug)
+    {
+        if (!is_file($path = resource_path('posts/' . $slug))) {
             return abort(404);
         }
 
