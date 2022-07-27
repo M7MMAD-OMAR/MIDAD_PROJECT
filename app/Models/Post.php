@@ -2,11 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\File;
+
 class Post
 {
 
     public static function all()
     {
+        $files = File::allFiles(resource_path('posts'));
+
+        return array_map(function ($file) {
+            return $file->getContents();
+        }, $files);
     }
 
 
