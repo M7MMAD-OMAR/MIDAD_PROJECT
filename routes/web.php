@@ -17,17 +17,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $files = File::files(resource_path('posts'));
-    $objects = [];
-    $posts = array_map(function ($file) {
-        $objects = \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile($file);
-        return new Post(
-            $objects->matter('title'),
-            $objects->slug,
-            $objects->date,
-            $objects->excerpt,
-            $objects->body(),
-        );
-    }, $files);
+
+    $posts = collect($files)
+        ->map(function ($file) {
+        return  \Spatie\YamlFrontMatter\YamlFrontMatter::parseFile($file);
+        })->map(function ($object) {
+            return new Post(
+                $object->matter('title'),
+                $object->slug,
+                $object->date,
+                $object->excerpt,
+                $object->body(),
+            );
+        });
 
     return view('posts', compact('posts'));
 });
