@@ -14,9 +14,11 @@
             justify-content: center;
             align-content: center;
         }
+
         body div {
             max-width: 50%;
         }
+
         a {
             color: #f7fafc;
         }
@@ -26,17 +28,13 @@
 
     <div>
         <artisan>
-            <a href="/posts/first_post.html"><h1>First post</h1></a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, ipsum!</p>
-        </artisan>
-        <artisan>
-            <a href="/posts/second_post.html"><h1>Second post</h1></a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, minus.</p>
-        </artisan>
-        <artisan>
-            <a href="/posts/third_post.html"><h1>Third post</h1></a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, itaque?</p>
-        </artisan>
+            @foreach($posts as $post)
+                <div>
+                    {{$post}}
+                </div>
+
+        @endforeach
     </div>
+
 </body>
 </html>

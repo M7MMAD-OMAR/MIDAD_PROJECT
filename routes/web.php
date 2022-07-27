@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('posts');
+    $posts = \App\Models\Post::all();
+    return view('posts', compact('posts'));
 });
 
 Route::get('/posts/{slug}', function ($slug) {
